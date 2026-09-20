@@ -75,9 +75,15 @@ class InstallerWizard(QWidget):
         target.mkdir(parents=True, exist_ok=True)
         app_dir = Path(__file__).resolve().parent
         exe_name = 'yt-dlp-gui.exe' if os.name == 'nt' else 'yt-dlp-gui'
-        source_app = app_dir / exe_name
-        if not source_app.exists():
-            QMessageBox.warning(self, 'Arquivo não encontrado', f'Não foi encontrado o executável esperado em:\n{source_app}')
+        source_candidates = (
+            app_dir / exe_name,
+            app_dir.parent / 'dist' / exe_name,
+            Path.cwd() / 'dist' / exe_name,
+        )
+        source_app = next((candidate for candidate in source_candidates if candidate.exists()), None)
+        if source_app is None:
+            locations = '\n'.join(str(candidate) for candidate in source_candidates)
+            QMessageBox.warning(self, 'Arquivo não encontrado', f'Não foi encontrado o executável em:\n{locations}')
             return
 
         copied = target / exe_name

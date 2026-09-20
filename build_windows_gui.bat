@@ -59,6 +59,8 @@ if errorlevel 1 (
     exit /b 1
 )
 
+copy /y uninstall_windows_gui.bat dist\uninstall_windows_gui.bat >nul
+
 echo.
 echo ================================================================
 echo Build concluido com sucesso.
