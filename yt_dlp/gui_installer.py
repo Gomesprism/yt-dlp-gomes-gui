@@ -84,6 +84,9 @@ class InstallerWizard(QWidget):
         if copied.exists():
             copied.unlink()
         shutil.copy2(source_app, copied)
+        uninstall_source = app_dir / 'uninstall_windows_gui.bat'
+        if uninstall_source.exists():
+            shutil.copy2(uninstall_source, target / uninstall_source.name)
 
         if self.desktop_shortcut.isChecked():
             try:

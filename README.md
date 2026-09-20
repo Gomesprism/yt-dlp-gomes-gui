@@ -2212,6 +2212,8 @@ python -m yt_dlp.gui_installer
 
 O histórico é salvo em `~/.config/yt-dlp-gui/history.json` (ou em `$XDG_CONFIG_HOME/yt-dlp-gui/history.json`). A conversão de áudio requer o FFmpeg disponível no sistema.
 
+Para desinstalar no Windows, execute `uninstall_windows_gui.bat` como usuário normal. O desinstalador remove somente o aplicativo e os atalhos padrão; não remove Python, FFmpeg, histórico ou arquivos baixados.
+
 #### Add a custom PostProcessor
 
 ```python
