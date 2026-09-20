@@ -2193,6 +2193,25 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download(URLS)
 ```
 
+### Interface gráfica
+
+Este fork inclui uma interface PySide6 para downloads de vídeo e áudio, organização por subpastas e histórico local. Esta versão foi desenvolvida com auxílio de IA e possui a marca "Feito por IA" na interface e no assistente de instalação.
+
+```bash
+pip install -e ".[gui]"
+yt-dlp-gui
+```
+
+Para gerar um executável e um instalador wizard:
+
+```bash
+pip install pyinstaller
+python -m PyInstaller --onefile --name yt-dlp-gui --windowed --icon devscripts/logo.ico yt_dlp/gui.py
+python -m yt_dlp.gui_installer
+```
+
+O histórico é salvo em `~/.config/yt-dlp-gui/history.json` (ou em `$XDG_CONFIG_HOME/yt-dlp-gui/history.json`). A conversão de áudio requer o FFmpeg disponível no sistema.
+
 #### Add a custom PostProcessor
 
 ```python

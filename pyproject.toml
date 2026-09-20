@@ -46,6 +46,9 @@ dynamic = ["version"]
 dependencies = []
 
 [project.optional-dependencies]
+gui = [
+    "PySide6>=6.8",
+]
 default = [
     "brotli ; implementation_name == 'cpython' and sys_platform != 'ios'",
     "brotlicffi ; implementation_name != 'cpython'",
@@ -142,6 +145,8 @@ Funding = "https://github.com/yt-dlp/yt-dlp/blob/master/Maintainers.md#maintaine
 
 [project.scripts]
 yt-dlp = "yt_dlp:main"
+yt-dlp-gui = "yt_dlp.gui:main"
+yt-dlp-gui-installer = "yt_dlp.gui_installer:main"
 
 [project.entry-points.pyinstaller40]
 hook-dirs = "yt_dlp.__pyinstaller:get_hook_dirs"
