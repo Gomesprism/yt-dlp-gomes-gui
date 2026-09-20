@@ -7,6 +7,7 @@ echo ================================================================
 echo.
 
 set "INSTALL_DIR=%LOCALAPPDATA%\Programs\yt-dlp-gui"
+if exist "%~dp0yt-dlp-gui.exe" set "INSTALL_DIR=%~dp0"
 echo Este desinstalador remove somente:
 echo %INSTALL_DIR%
 echo Python, FFmpeg, historico e arquivos baixados nao serao removidos.
