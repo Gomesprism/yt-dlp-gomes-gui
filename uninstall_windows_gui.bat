@@ -25,6 +25,7 @@ echo %INSTALL_DIR%
 choice /M "Deseja continuar"
 if errorlevel 2 exit /b 0
 
+cd /d "%TEMP%"
 rmdir /s /q "%INSTALL_DIR%"
 if errorlevel 1 (
     echo Nao foi possivel remover a pasta. Feche o app e tente novamente.
